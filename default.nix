@@ -1,5 +1,20 @@
 { inputs, ... }:
 {
-  # Import all your configuration modules here
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+    ./options.nix
+    ./plugins
+  ];
+
+  home.shellAliases.v = "nvim";
+
+  programs.nixvim = {
+    enable = true;
+    defaultEditor = true;
+
+    viAlias = true;
+    vimAlias = true;
+
+    luaLoader.enable = true;
+  };
 }
