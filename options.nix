@@ -8,7 +8,15 @@
     };
 
     opts = {
+      updatetime = 100; # Faster completion
+      number = true; # Display the absolute line number of the current line
+      mouse = "a"; # Enable mouse control
+
       swapfile = false; # Disable the swap file
+      undofile = true; # Automatically save and restore undo history
+      incsearch = true; # Incremental search: show match for partly typed search command
+      ignorecase = true; # When the search query is lower-case, match both lower and upper-case
+      smartcase = true; # Override the 'ignorecase' option if the search pattern contains upper
       fileencoding = "utf-8"; # File-content encoding for the current buffer
       termguicolors = true; # Enables 24-bit RGB color in the |TUI|
 
