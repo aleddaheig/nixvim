@@ -27,7 +27,7 @@
     cd /path/to/folder
     git clone https://github.com/aleddaheig/nixvim.git
     ```
-3. Import the nixvim folder in home-manager main .nix configuration:
+4. Import the nixvim folder in home-manager main .nix configuration:
     ```nix
     { ... }:
     {

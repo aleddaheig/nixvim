@@ -1,5 +1,8 @@
 {
-  imports = [ ./lsp.nix ];
+  imports = [
+    ./lsp.nix
+    ./markdown-preview.nix
+  ];
 
   programs.nixvim = {
     colorschemes.vscode.enable = true;
