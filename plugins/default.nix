@@ -2,6 +2,7 @@
   imports = [
     ./lsp.nix
     ./markdown-preview.nix
+    ./treesitter.nix
   ];
 
   programs.nixvim = {
