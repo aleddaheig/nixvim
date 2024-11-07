@@ -2,6 +2,7 @@
   imports = [
     ./lsp.nix
     ./markdown-preview.nix
+    ./oil.nix
     ./treesitter.nix
   ];
 
@@ -16,7 +17,7 @@
         userDefaultOptions.names = false;
       };
 
-      oil.enable = true;
     };
+
   };
 }
