@@ -32,13 +32,11 @@
             enable = true;
             cmd = [ "nixd" ];
             settings = {
-              nixd = {
-                nixpkgs = {
-                  expr = "import <nixpkgs> {}";
-                };
-                formatting = {
-                  command = "nixfmt";
-                };
+              nixpkgs = {
+                expr = "import <nixpkgs> {}";
+              };
+              formatting = {
+                command = [ "nixfmt" ];
               };
             };
           };
