@@ -87,6 +87,11 @@
               "go.work"
               "go.mod"
             ];
+            settings = {
+              gopls = {
+                completeUnimported = true;
+              };
+            };
           };
           ts_ls.enable = true; # TS/JS
           eslint.enable = true; # Eslint
