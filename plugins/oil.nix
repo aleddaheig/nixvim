@@ -14,7 +14,9 @@
       settings = {
         view_options.show_hidden = true;
         keymaps = {
+          "<C-p>" = false;
           "<leader>qq" = "actions.close";
+          "<leader>p" = "actions.preview";
         };
         skip_confirm_for_simple_edits = true;
       };
