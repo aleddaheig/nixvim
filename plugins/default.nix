@@ -1,7 +1,9 @@
+{ pkgs, ... }:
 {
   imports = [
     ./dap.nix
     ./formatter.nix
+    ./go.nix
     ./lsp.nix
     ./markdown-preview.nix
     ./oil.nix
@@ -20,5 +22,6 @@
         enable = true;
       };
     };
+
   };
 }
