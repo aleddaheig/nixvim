@@ -99,6 +99,15 @@
           tailwindcss.enable = true; # TailwindCSS
           html.enable = true; # HTML
           dockerls.enable = true; # Docker
+          # Docker compose
+          docker_compose_language_service = {
+            enable = true;
+            filetypes = [
+              "yml"
+              "yaml"
+              "yaml.docker-compose"
+            ];
+          };
           bashls.enable = true; # Bash
           clangd.enable = true; # C/C++
           vuels.enable = false; # Vue
