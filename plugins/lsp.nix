@@ -72,6 +72,13 @@
           intelephense = {
             enable = true;
             package = pkgs.intelephense;
+            settings = {
+              intelephense = {
+                format = {
+                  enable = false;
+                };
+              };
+            };
           };
 
           # Golang
