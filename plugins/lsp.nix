@@ -73,7 +73,21 @@
             enable = true;
             package = pkgs.intelephense;
           };
-          gopls.enable = true; # Golang
+
+          # Golang
+          gopls = {
+            enable = true;
+            filetypes = [
+              "go"
+              "gomod"
+              "gowork"
+              "gotmpl"
+            ];
+            rootMarkers = [
+              "go.work"
+              "go.mod"
+            ];
+          };
           ts_ls.enable = true; # TS/JS
           eslint.enable = true; # Eslint
           cssls.enable = true; # CSS
