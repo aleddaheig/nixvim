@@ -22,6 +22,8 @@
         };
       };
 
+      emmet.enable = true;
+
       cmp = {
         enable = true;
 

@@ -1,4 +1,10 @@
 {
+  pkgs,
+  lib,
+  self,
+  ...
+}:
+{
   programs.nixvim = {
     plugins = {
       lsp-format = {
@@ -8,6 +14,7 @@
 
       lsp = {
         enable = true;
+        inlayHints = true;
 
         keymaps = {
           silent = true;
@@ -18,28 +25,66 @@
           };
 
           lspBuf = {
-            gd = "definition";
-            gD = "references";
-            gt = "type_definition";
-            gi = "implementation";
+            gd = {
+              action = "definition";
+              desc = "Goto Definition";
+            };
+            gr = {
+              action = "references";
+              desc = "Goto References";
+            };
+            gD = {
+              action = "declaration";
+              desc = "Goto Declaration";
+            };
+            gi = {
+              action = "implementation";
+              desc = "Goto Implementation";
+            };
+            gt = {
+              action = "type_definition";
+              desc = "Type Definition";
+            };
             K = "hover";
             "<F2>" = "rename";
           };
         };
 
         servers = {
+          # NIX
           nixd = {
             enable = true;
-            cmd = [ "nixd" ];
-            settings = {
-              nixpkgs = {
-                expr = "import <nixpkgs> {}";
+            settings =
+              let
+                flake = ''(builtins.getFlake "${self}")'';
+              in
+              {
+                nixpkgs = {
+                  expr = "import ${flake}.inputs.nixpkgs { }";
+                };
+                formatting = {
+                  command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+                };
               };
-              formatting = {
-                command = [ "nixfmt" ];
-              };
-            };
           };
+
+          # PHP
+          intelephense = {
+            enable = true;
+            package = pkgs.intelephense;
+          };
+          gopls.enable = true; # Golang
+          ts_ls.enable = true; # TS/JS
+          eslint.enable = true; # Eslint
+          cssls.enable = true; # CSS
+          tailwindcss.enable = true; # TailwindCSS
+          html.enable = true; # HTML
+          dockerls.enable = true; # Docker
+          bashls.enable = true; # Bash
+          clangd.enable = true; # C/C++
+          vuels.enable = false; # Vue
+          pyright.enable = true; # Python
+          java_language_server.enable = true; # Java
         };
       };
     };
