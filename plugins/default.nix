@@ -1,5 +1,6 @@
 {
   imports = [
+    ./formatter.nix
     ./lsp.nix
     ./markdown-preview.nix
     ./oil.nix
