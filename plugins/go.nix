@@ -34,6 +34,16 @@
           desc = "Add yaml struct tags";
         };
       }
+
+      {
+        mode = "n";
+        key = "<leader>gie";
+        action = "<cmd> GoIfErr <CR>";
+        options = {
+          silent = true;
+          desc = "Add if error snippet";
+        };
+      }
     ];
   };
 }
