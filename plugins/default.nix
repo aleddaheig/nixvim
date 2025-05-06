@@ -1,5 +1,6 @@
 {
   imports = [
+    ./dap.nix
     ./formatter.nix
     ./lsp.nix
     ./markdown-preview.nix
