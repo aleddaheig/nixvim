@@ -120,6 +120,7 @@
           vuels.enable = false; # Vue
           pyright.enable = true; # Python
           java_language_server.enable = true; # Java
+          markdown_oxide.enable = true; # Markdown
         };
       };
     };

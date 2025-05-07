@@ -31,6 +31,7 @@
         python
         cpp
         c
+        lua
       ];
     };
 

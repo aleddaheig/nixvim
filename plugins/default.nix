@@ -18,6 +18,8 @@
     plugins = {
       nvim-autopairs.enable = true;
 
+      ts-autotag.enable = true;
+
       which-key.enable = true;
 
       colorizer = {

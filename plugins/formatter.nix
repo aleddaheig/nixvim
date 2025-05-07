@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   programs.nixvim = {
     extraPackages = with pkgs; [
@@ -19,10 +19,12 @@
           ];
           javascript = [ "prettierd" ];
           typescript = [ "prettierd" ];
+
           php = [ "pint" ];
         };
         format_on_save = {
-          timeoutMs = "500";
+          timeout_ms = 500;
+          lsp_fallback = true;
         };
         notify_on_error = true;
         notify_no_formatters = true;
