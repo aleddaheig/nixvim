@@ -29,10 +29,10 @@
       };
 
       # Export as a home-manager module
-      homeManagerModules.default =
+      homeModules.default =
         { pkgs, ... }:
         {
-          imports = [ nixvim.homeManagerModules.nixvim ];
+          imports = [ nixvim.homeModules.nixvim ];
           programs.nixvim = {
             enable = true;
             # Import your configuration
