@@ -28,6 +28,7 @@
       # Export as a package
       packages.${system}.default = nixvim.legacyPackages.${system}.makeNixvimWithModule {
         inherit pkgs;
+        extraSpecialArgs = { inherit self; };
         module = ./config; # Your nixvim config directory
       };
 
