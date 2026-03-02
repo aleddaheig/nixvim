@@ -35,12 +35,11 @@
           imports = [ nixvim.homeModules.nixvim ];
           programs.nixvim = {
             enable = true;
-            # Import your configuration
             imports = [ ./config ];
           };
         };
 
-      # Export as a NixOS module (optional)
+      # Export as a NixOS module
       nixosModules.default =
         { pkgs, ... }:
         {

@@ -11,21 +11,18 @@
     ./treesitter.nix
   ];
 
-  programs.nixvim = {
-    colorschemes.base16.enable = true;
-    colorschemes.base16.colorscheme = "material";
+  colorschemes.base16.enable = true;
+  colorschemes.base16.colorscheme = "material";
 
-    plugins = {
-      nvim-autopairs.enable = true;
+  plugins = {
+    nvim-autopairs.enable = true;
 
-      ts-autotag.enable = true;
+    ts-autotag.enable = true;
 
-      which-key.enable = true;
+    which-key.enable = true;
 
-      colorizer = {
-        enable = true;
-      };
+    colorizer = {
+      enable = true;
     };
-
   };
 }

@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 {
   imports = [
     ./completion.nix
@@ -7,15 +7,9 @@
     ./plugins
   ];
 
-  home.shellAliases.v = "nvim";
-
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
-
-    vimAlias = true;
-    vimdiffAlias = true;
-
-    luaLoader.enable = true;
-  };
+  defaultEditor = true;
+  vimAlias = true;
+  vimdiffAlias = true;
+  luaLoader.enable = true;
 }
+
