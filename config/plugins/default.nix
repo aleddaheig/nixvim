@@ -17,7 +17,9 @@
   plugins = {
     nvim-autopairs.enable = true;
 
-    ts-autotag.enable = true;
+    # ts-autotag pulls in nixpkgs' nvim-treesitter via propagatedBuildInputs,
+    # conflicting with nixvim's own treesitter version.
+    # ts-autotag.enable = true;
 
     which-key.enable = true;
 
