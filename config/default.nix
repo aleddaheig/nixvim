@@ -7,6 +7,8 @@
     ./plugins
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   defaultEditor = true;
   vimAlias = true;
   vimdiffAlias = true;
