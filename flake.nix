@@ -2,10 +2,10 @@
   description = "My NixVim configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:nix-community/nixvim/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -19,37 +19,40 @@
     }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
     in
     {
       # Export as a package
       packages.${system}.default = nixvim.legacyPackages.${system}.makeNixvimWithModule {
-        inherit pkgs;
-        extraSpecialArgs = { inherit self; };
-        module = ./config; # Your nixvim config directory
+        module = {
+          imports = [ ./config ];
+          nixpkgs.config.allowUnfree = true;
+        };
       };
 
       # Export as a home-manager module
       homeModules.default =
-        { pkgs, ... }:
+        { ... }:
         {
           imports = [ nixvim.homeModules.nixvim ];
           programs.nixvim = {
             enable = true;
+            vimAlias = true;
+            vimdiffAlias = true;
+            defaultEditor = true;
             imports = [ ./config ];
           };
         };
 
       # Export as a NixOS module
       nixosModules.default =
-        { pkgs, ... }:
+        { ... }:
         {
           imports = [ nixvim.nixosModules.nixvim ];
           programs.nixvim = {
             enable = true;
+            vimAlias = true;
+            vimdiffAlias = true;
+            defaultEditor = true;
             imports = [ ./config ];
           };
         };

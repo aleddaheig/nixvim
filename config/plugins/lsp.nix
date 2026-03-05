@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  self,
   ...
 }:
 {
@@ -53,18 +52,22 @@
         # NIX
         nixd = {
           enable = true;
-          settings =
-            let
-              flake = ''(builtins.getFlake "${self}")'';
-            in
-            {
-              nixpkgs = {
-                expr = "import ${flake}.inputs.nixpkgs { }";
-              };
-              formatting = {
-                command = [ "${lib.getExe pkgs.nixfmt}" ];
-              };
+          settings = {
+            nixpkgs = {
+              expr = "import ${pkgs.path} { }";
             };
+            formatting = {
+              command = [ "${lib.getExe pkgs.nixfmt}" ];
+            };
+            options = {
+              nixos.expr = ''
+                (let pkgs = import ${pkgs.path} { }; in (pkgs.lib.evalModules {
+                  modules = (import "${pkgs.path}/nixos/modules/module-list.nix") ++
+                    [ ({...}: { nixpkgs.hostPlatform = builtins.currentSystem; }) ];
+                })).options
+              '';
+            };
+          };
         };
 
         # PHP

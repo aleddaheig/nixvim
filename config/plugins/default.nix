@@ -8,7 +8,7 @@
     ./markdown-preview.nix
     ./oil.nix
     ./telescope.nix
-    #./treesitter.nix
+    ./treesitter.nix
   ];
 
   colorschemes.base16.enable = true;

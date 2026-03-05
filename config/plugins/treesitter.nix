@@ -45,8 +45,6 @@
       };
     };
 
-    # hmts brings in nixpkgs' nvim-treesitter as a propagated dep, conflicting
-    # with nixvim's own treesitter. Disabled until resolved upstream.
-    # hmts.enable = true;
+    hmts.enable = true;
   };
 }
