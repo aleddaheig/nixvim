@@ -32,6 +32,8 @@
         cpp
         c
         lua
+        asm
+        nasm
       ];
     };
 
