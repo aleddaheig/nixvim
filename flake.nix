@@ -39,7 +39,7 @@
 
       # Export as a home-manager module
       homeModules.default =
-        { ... }:
+        { pkgs, unstable, ... }:
         {
           imports = [ nixvim.homeModules.nixvim ];
           programs.nixvim = {
@@ -47,13 +47,13 @@
             vimAlias = true;
             vimdiffAlias = true;
             defaultEditor = true;
-            imports = [ ./config ];
+            imports = [ (import ./config { inherit pkgs unstable; }) ];
           };
         };
 
       # Export as a NixOS module
       nixosModules.default =
-        { ... }:
+        { pkgs, unstable, ... }:
         {
           imports = [ nixvim.nixosModules.nixvim ];
           programs.nixvim = {
@@ -61,7 +61,7 @@
             vimAlias = true;
             vimdiffAlias = true;
             defaultEditor = true;
-            imports = [ ./config ];
+            imports = [ (import ./config { inherit pkgs unstable; }) ];
           };
         };
     };
