@@ -34,12 +34,13 @@
         module = {
           imports = [ ./config ];
           nixpkgs.config.allowUnfree = true;
+          _module.args.unstable = unstable;
         };
       };
 
       # Export as a home-manager module
       homeModules.default =
-        { pkgs, unstable, ... }:
+        { unstable, ... }:
         {
           imports = [ nixvim.homeModules.nixvim ];
           programs.nixvim = {
@@ -47,13 +48,14 @@
             vimAlias = true;
             vimdiffAlias = true;
             defaultEditor = true;
-            imports = [ (import ./config { inherit pkgs unstable; }) ];
+            imports = [ ./config ];
+            _module.args.unstable = unstable;
           };
         };
 
       # Export as a NixOS module
       nixosModules.default =
-        { pkgs, unstable, ... }:
+        { unstable, ... }:
         {
           imports = [ nixvim.nixosModules.nixvim ];
           programs.nixvim = {
@@ -61,7 +63,8 @@
             vimAlias = true;
             vimdiffAlias = true;
             defaultEditor = true;
-            imports = [ (import ./config { inherit pkgs unstable; }) ];
+            imports = [ ./config ];
+            _module.args.unstable = unstable;
           };
         };
     };
