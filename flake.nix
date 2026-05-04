@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixvim = {
       url = "github:nix-community/nixvim/nixos-25.11";
@@ -14,11 +15,18 @@
     {
       self,
       nixpkgs,
+      nixpkgs-unstable,
       nixvim,
       ...
     }:
     let
       system = "x86_64-linux";
+
+      unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
     in
     {
       # Export as a package

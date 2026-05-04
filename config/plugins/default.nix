@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   imports = [
     ./dap.nix
@@ -9,6 +8,7 @@
     ./oil.nix
     ./telescope.nix
     ./treesitter.nix
+    ./zig.nix
   ];
 
   colorschemes.base16.enable = true;

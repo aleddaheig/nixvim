@@ -1,5 +1,6 @@
 {
   pkgs,
+  unstable,
   lib,
   ...
 }:
@@ -162,6 +163,12 @@
         markdown_oxide = {
           enable = true;
           package = pkgs.markdown-oxide;
+        };
+
+        # Zig
+        zls = {
+          enable = true;
+          package = unstable.zls;
         };
       };
     };
