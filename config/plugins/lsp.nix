@@ -183,11 +183,6 @@
         };
       };
     };
-
-    none-ls = {
-      enable = true;
-      sources.formatting.asmfmt.enable = true;
-    };
   };
 
   # gopls requires Go to be present at runtime
