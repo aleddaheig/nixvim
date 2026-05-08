@@ -121,7 +121,7 @@
         # Docker
         dockerls = {
           enable = true;
-          package = pkgs.dockerfile-language-server-nodejs;
+          package = pkgs.dockerfile-language-server;
         };
 
         # Docker Compose
