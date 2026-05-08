@@ -170,7 +170,23 @@
           enable = true;
           package = unstable.zls;
         };
+
+        # ASM
+        asm_lsp = {
+          enable = true;
+          package = pkgs.asm-lsp;
+          filetypes = [
+            "asm"
+            "s"
+            "S"
+          ];
+        };
       };
+    };
+
+    none-ls = {
+      enable = true;
+      sources.formatting.asmfmt.enable = true;
     };
   };
 
