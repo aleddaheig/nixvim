@@ -34,6 +34,7 @@
         lua
         asm
         nasm
+        odin
       ];
     };
 
