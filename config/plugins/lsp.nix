@@ -184,7 +184,9 @@
 
         rust_analyzer = {
           enable = true;
-          package = unstable.rust_analyzer;
+          package = unstable.rust-analyzer;
+          installCargo = false;
+          installRustc = false;
         };
       };
     };
