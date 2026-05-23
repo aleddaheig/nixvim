@@ -181,6 +181,11 @@
             "S"
           ];
         };
+
+        rust_analyzer = {
+          enable = true;
+          package = unstable.rust_analyzer;
+        };
       };
     };
   };
