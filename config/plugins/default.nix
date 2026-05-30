@@ -3,6 +3,7 @@
     ./dap.nix
     ./formatter.nix
     #./go.nix
+    ./img-clip.nix
     ./lsp.nix
     ./markdown-preview.nix
     ./oil.nix
